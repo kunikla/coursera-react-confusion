@@ -3,6 +3,19 @@ import { Card, CardTitle, CardBody, CardText, CardImg, CardImgOverlay } from 're
 
 class DishdetailComponent extends Component {
 
+    renderDish (dish) {
+        return(
+            <Card>
+                <CardImg width="100%" src={dish.image} alt={dish.name} />
+                <CardImgOverlay> </CardImgOverlay>
+                <CardBody>
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardText>{dish.description}</CardText>
+                </CardBody>
+            </Card>
+        );
+    }
+
     renderComments(comments) {
 
         return(
@@ -28,15 +41,7 @@ class DishdetailComponent extends Component {
             return(
                 <div class="row">
                     <div className="col-12 col-md-5 m-1">
-                        <Card>
-                            <CardImg width="100%" src={dish.image} alt={dish.name} />
-                            <CardImgOverlay> </CardImgOverlay>
-                            <CardBody>
-                                <CardTitle>{dish.name}</CardTitle>
-                                <CardText>{dish.description}</CardText>
-                            </CardBody>
-                        </Card>
-
+                        {this.renderDish(dish)}
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <h4>Comments</h4>
